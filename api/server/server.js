@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const { userRouter } = require('../routes/user');
+const { videoRouter } = require('../routes/video');
 
 const app = express();
 
@@ -21,6 +22,7 @@ try {
 
 app.use(express.json());
 app.use('/api/streamer-app', userRouter);
+app.use('/api/streamer-app', videoRouter);
 
 const start = () => {
   app.listen(PORT, () => {
